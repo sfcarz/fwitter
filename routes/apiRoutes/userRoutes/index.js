@@ -4,6 +4,7 @@ const router = require('express').Router();
 // const { insertUser } = require('../../../model/userQueries');
 // const { fetchUsers } = require('../../../model/userOrm');
 const { getAllUsers, addUser } = require('../../../controllers/userController');
+
 router.route('/')
   .get(getAllUsers)
   .post(addUser);

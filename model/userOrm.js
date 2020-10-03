@@ -1,4 +1,4 @@
-const { findAllUsers, insertUser } = require('./userQueries');
+const { findAllUsers, insertUserQuery } = require('./userQueries');
 
 const connection = require('../config/connection');
 
@@ -12,9 +12,10 @@ const fetchUsers = async () => {
   }
 };
 
-const insertUserToDb = async (userInput) => {
+const insertUserToDb = async (username) => {
   try {
-    return await connection.query(insertUser, userInput);
+    const [result] = await connection.query(insertUserQuery, username);
+    return result;
   } catch (e) {
     throw new Error(e);
   }
